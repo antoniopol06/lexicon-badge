@@ -1,0 +1,25 @@
+{namespace LexiconBadge}
+
+/**
+ * This renders an icon element based on the lexicon icon definition
+ * found at http://liferay.github.io/lexicon/content/icons-lexicon/
+ *
+ * @param? elementClasses
+ * @param? href
+ * @param? label
+ * @param? level
+ * @param? size
+ */
+{template .render}
+	<span class="badge badge-{$level}{$size ? ' badge-' + $size : ''}{$elementClasses ? ' ' + $elementClasses : ''}">
+		{$label}
+		{if $href}
+			<a href="{$href}">
+				{call LexiconIcon.render data="all"}
+					{param elementClasses: '' /}
+					{param symbol: 'times' /}
+				{/call}
+			</a>
+		{/if}
+	</span>
+{/template}

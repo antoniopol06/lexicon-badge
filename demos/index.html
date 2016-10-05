@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Demo: Badge</title>
+
+		<link rel="stylesheet" href="../node_modules/lexicon-ux/build/css/atlas-font-awesome.css">
+		<script src="../build/globals/badge.js"></script>
+
+		<style>
+			body {
+				padding: 10px;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>Lexicon Badge Component</h1>
+		<h2>Badges</h2>
+		<div id="badges">
+		</div>
+		<h2>Badge Sizes</h2>
+		<div id="badge-sizes">
+		</div>
+		<h2>Badge with links</h2>
+		<div id="badge-links">
+		</div>
+		<script type="text/javascript">
+			var badgesArea = document.querySelector('#badges');
+
+			var badgeSizesArea = document.querySelector('#badge-sizes');
+
+			var badgeLinksArea = document.querySelector('#badge-links');
+
+			var BADGES = [
+				{
+					label: 'Default'
+				},
+				{
+					label: 'Primary',
+					level: 'primary'
+				},
+				{
+					label: 'Success',
+					level: 'success'
+				},
+				{
+					label: 'Info',
+					level: 'info'
+				},
+				{
+					label: 'Warning',
+					level: 'warning'
+				},
+				{
+					label: 'Danger',
+					level: 'badge-danger'
+				}
+			];
+
+			var BADGE_SIZES = [
+				{
+					label: 'Small Badge',
+					size: 'sm'
+				},
+				{
+					label: 'Default Size Badge',
+					level: 'primary'
+				},
+				{
+					label: 'large-badge',
+					level: 'success',
+					size: 'lg'
+				}
+			];
+
+			var BADGE_LINKS = [
+				{
+					label: 'Small Badge',
+					size: 'sm',
+					href: '#1'
+				},
+				{
+					label: 'Default Size Badge',
+					level: 'primary',
+					href: '#1'
+				},
+				{
+					label: 'large-badge',
+					level: 'success',
+					size: 'lg',
+					href: '#1'
+				}
+			];
+
+			//Badges
+			BADGES.forEach(function (badge, index) {
+				var badgeElement = document.createElement("span");
+
+				badgesArea.appendChild(badgeElement);
+
+				new metal.LexiconBadge({
+					element: badgeElement,
+					label: badge.label,
+					level: badge.level
+				});
+			});
+
+			//Badge Sizes
+			BADGE_SIZES.forEach(function (badge, index) {
+				var badgeElement = document.createElement("span");
+
+				badgeSizesArea.appendChild(badgeElement);
+
+				new metal.LexiconBadge({
+					element: badgeElement,
+					label: badge.label,
+					level: badge.level,
+					size: badge.size
+				});
+			});
+
+			// Badge Links
+			BADGE_LINKS.forEach(function (badge, index) {
+				var badgeElement = document.createElement("span");
+
+				badgeLinksArea.appendChild = badgeElement;
+
+				new metal.LexiconBadge({
+					element: badgeElement,
+					href: badge.href,
+					label: badge.label,
+					level: badge.level,
+					size: badge.size,
+					spritemap: '../node_modules/lexicon-ux/build/images/icons/icons.svg'
+				});
+			})
+
+		</script>
+	</body>
+</html>
